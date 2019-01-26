@@ -38,9 +38,11 @@ func move():
 	if (playerPosition - position).length() > 100:
     	move_and_slide(velocity)
 		
-func take_damage():
+func take_damage(damage):
 	# if 3rd player hit, then down/stun, move back
-	
+	health -= damage
+	if health <= 0:
+		queue_free()
 	if playerNode.specialAttack:
 		# play animation for 1 sec
 		health -= playerNode.playerSpecialDamage

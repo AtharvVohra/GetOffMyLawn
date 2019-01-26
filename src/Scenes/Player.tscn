@@ -103,7 +103,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[node name="Player" type="KinematicBody2D" index="0"]
+[node name="Player" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 2
@@ -167,5 +167,7 @@ size_flags_vertical = 1
 _sections_unfolded = [ "Rect" ]
 
 [node name="HealthBar" parent="CanvasLayer/Control" index="0" instance=ExtResource( 4 )]
+
+[connection signal="body_entered" from="HurtBox" to="." method="_on_HurtBox_body_entered"]
 
 
