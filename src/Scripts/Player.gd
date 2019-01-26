@@ -12,6 +12,7 @@ var canShoot = true
 var anim
 var animNew
 export var attacking = false
+var health = 100
 
 func _ready():
 	set_physics_process(true)
@@ -46,11 +47,14 @@ func controls_loop(delta):
 	var LIGHT_ATTACK = Input.is_action_just_pressed("ui_light_attack")
 	var HEAVY_ATTACK = Input.is_action_just_pressed("ui_heavy_attack")
 
+	if attacking:
+		$HurtBox/CollisionShape2D.disabled = false
+	else:
+		$HurtBox/CollisionShape2D.disabled = true
 	if LIGHT_ATTACK and !attacking:
 		$AnimationPlayer.play("light_attack")
 	if HEAVY_ATTACK and !attacking:
 		$AnimationPlayer.play("heavy_attack")
-
 	if !attacking:
 		movedir.x = -int(LEFT) + int(RIGHT)
 		movedir.y = -int(UP) + int(DOWN)
@@ -59,11 +63,14 @@ func controls_loop(delta):
 
 	if movedir.x > 0:
 		#anim = "PlayerWalkingRight"
-		$Sprite.flip_h = false
+		if $Sprite.flip_h == true:
+			$Sprite.flip_h = false
+			$HurtBox.position.x *= -1
 	elif movedir.x < 0:
 		#anim = "PlayerWalkingRight"
-		$Sprite.flip_h = true
-	
+		if $Sprite.flip_h == false:
+			$Sprite.flip_h = true
+			$HurtBox.position.x *= -1
 
 func movement_loop(delta):
 	var motion = movedir.normalized() * MOTION_SPEED
