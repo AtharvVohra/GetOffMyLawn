@@ -11,6 +11,7 @@ var haveBullet = true
 var canShoot = true
 var anim
 var animNew
+export var attacking = false
 
 func _ready():
 	set_physics_process(true)
@@ -20,7 +21,7 @@ func _physics_process(delta):
 	#if playerControlEnabled:
 	controls_loop(delta)
 	movement_loop(delta)
-	updateCamera()
+	#updateCamera()
 
 func updateCamera():
 	var targetPosition = (mousePos*0.3+global_position*0.7)
@@ -42,15 +43,19 @@ func controls_loop(delta):
 	var RIGHT	= Input.is_action_pressed("ui_right")
 	var UP		= Input.is_action_pressed("ui_up")
 	var DOWN	= Input.is_action_pressed("ui_down")
-	var SHOOT	= Input.is_action_just_pressed("ui_shoot")
-	var RESTART	= Input.is_action_pressed("ui_restart")
-	var PAUSE = Input.is_action_pressed("ui_cancel")
+	var LIGHT_ATTACK = Input.is_action_just_pressed("ui_light_attack")
+	var HEAVY_ATTACK = Input.is_action_just_pressed("ui_heavy_attack")
 
-	if RESTART:
-		get_tree().reload_current_scene()
-	movedir.x = -int(LEFT) + int(RIGHT)
-	movedir.y = -int(UP) + int(DOWN)
-	
+	if LIGHT_ATTACK and !attacking:
+		$AnimationPlayer.play("light_attack")
+	if HEAVY_ATTACK and !attacking:
+		$AnimationPlayer.play("heavy_attack")
+
+	if !attacking:
+		movedir.x = -int(LEFT) + int(RIGHT)
+		movedir.y = -int(UP) + int(DOWN)
+	else:
+		movedir = Vector2(0, 0)
 
 	if movedir.x > 0:
 		#anim = "PlayerWalkingRight"
