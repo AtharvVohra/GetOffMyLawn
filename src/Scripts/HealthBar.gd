@@ -3,11 +3,12 @@ extends Control
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
+var scaleX
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
-	pass
+	scaleX = $HealthBar.scale.x
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
@@ -15,4 +16,4 @@ func _ready():
 #	pass
 
 func updateHealth(percentage):
-	$HealthBar.scale.x = 2*percentage
+	$HealthBar.scale.x = scaleX*percentage

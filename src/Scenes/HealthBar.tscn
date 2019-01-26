@@ -3,16 +3,14 @@
 [ext_resource path="res://Scripts/HealthBar.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 
-[node name="HealthBar" type="Control"]
+[node name="HealthBar" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -45.0
-margin_top = -18.0
-margin_right = 76.0
-margin_bottom = 15.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -904.0
+margin_bottom = -570.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -20,23 +18,22 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
-_sections_unfolded = [ "Anchor", "Margin", "Visibility" ]
+_sections_unfolded = [ "Anchor", "Margin", "Rect", "Visibility" ]
 
 [node name="HealthBarBG" type="Sprite" parent="." index="0"]
 
 modulate = Color( 1, 0, 0, 1 )
-position = Vector2( 46.1341, 16.9353 )
-scale = Vector2( 2, 0.4 )
+scale = Vector2( 3, 0.6 )
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform", "Visibility" ]
+offset = Vector2( 32, 30 )
+_sections_unfolded = [ "Offset", "Transform", "Visibility" ]
 
 [node name="HealthBar" type="Sprite" parent="." index="1"]
 
 modulate = Color( 0.03125, 1, 0, 1 )
-position = Vector2( -17.8274, 16.6248 )
-scale = Vector2( 2, 0.4 )
+scale = Vector2( 3, 0.6 )
 texture = ExtResource( 2 )
-offset = Vector2( 31.9807, 0.776124 )
+offset = Vector2( 32, 30 )
 _sections_unfolded = [ "Offset", "Transform", "Visibility" ]
 
 

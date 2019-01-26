@@ -12,7 +12,7 @@ var canShoot = true
 var anim
 var animNew
 export var attacking = false
-var health = 100
+var health = 100.0
 
 func _ready():
 	set_physics_process(true)
@@ -24,7 +24,7 @@ func _physics_process(delta):
 	movement_loop(delta)
 	$CanvasLayer/Control/HealthBar.updateHealth(float(health)/100)
 	if health > 0:
-		health -= 1
+		health -= 0.5
 	#updateCamera()
 
 func updateCamera():
