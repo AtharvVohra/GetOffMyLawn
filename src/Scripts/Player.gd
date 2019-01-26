@@ -60,7 +60,9 @@ func controls_loop(delta):
 	var LIGHT_ATTACK = Input.is_action_just_pressed("ui_light_attack")
 	var HEAVY_ATTACK = Input.is_action_just_pressed("ui_heavy_attack")
 	
-	
+	lightAttack = false
+	heavyAttack = false
+	specialAttack = false
 
 	if attacking:
 		$HurtBox/CollisionShape2D.disabled = false
@@ -70,10 +72,12 @@ func controls_loop(delta):
 	if LIGHT_ATTACK and !attacking:
 		if(special):
 			$AnimationPlayer.play("special_attack")
+			specialAttack = true
 			special = false
 			attackCounter = 0
 		else:
 			$AnimationPlayer.play("light_attack")
+			lightAttack = true
 			attackCounter = attackCounter + 1
 			if attackCounter == 3:
 				special = true 
@@ -81,10 +85,12 @@ func controls_loop(delta):
 	if HEAVY_ATTACK and !attacking:
 		if(special):
 			$AnimationPlayer.play("special_attack")
+			specialAttack = true
 			special = false
 			attackCounter = 0
 		else:
 			$AnimationPlayer.play("heavy_attack")
+			heavyAttack = true
 			attackCounter += 1
 			if attackCounter == 3:
 				special = true
