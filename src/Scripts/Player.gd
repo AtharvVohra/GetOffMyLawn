@@ -14,12 +14,12 @@ var animNew
 export var attacking = false
 var health = 100.0
 
-var lightAttack = false
-var playerLightDamage = 10 
-var heavyAttack = false
-var playerHeavyDamage = 20
-var specialAttack = false
-var playerSpecialDamage = 30
+export var lightAttack = false
+export var playerLightDamage = 10 
+export var heavyAttack = false
+export var playerHeavyDamage = 20
+export var specialAttack = false
+export var playerSpecialDamage = 30
 
 var attackCounter = 0
 var special = false
@@ -42,10 +42,7 @@ func controls_loop(delta):
 	var DOWN	= Input.is_action_pressed("ui_down")
 	var LIGHT_ATTACK = Input.is_action_just_pressed("ui_light_attack")
 	var HEAVY_ATTACK = Input.is_action_just_pressed("ui_heavy_attack")
-	
-	lightAttack = false
-	heavyAttack = false
-	specialAttack = false
+
 
 	if attacking:
 		$HurtBox/CollisionShape2D.disabled = false
@@ -55,12 +52,10 @@ func controls_loop(delta):
 	if LIGHT_ATTACK and !attacking:
 		if(special):
 			$AnimationPlayer.play("special_attack")
-			specialAttack = true
 			special = false
 			attackCounter = 0
 		else:
 			$AnimationPlayer.play("light_attack")
-			lightAttack = true
 			attackCounter = attackCounter + 1
 			if attackCounter == 3:
 				special = true 
@@ -68,12 +63,10 @@ func controls_loop(delta):
 	if HEAVY_ATTACK and !attacking:
 		if(special):
 			$AnimationPlayer.play("special_attack")
-			specialAttack = true
 			special = false
 			attackCounter = 0
 		else:
 			$AnimationPlayer.play("heavy_attack")
-			heavyAttack = true
 			attackCounter += 1
 			if attackCounter == 3:
 				special = true
