@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/LawnTileset.res" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/ConstructionWorker.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/EnemySpawner.tscn" type="PackedScene" id=4]
 
 [node name="World" type="Node2D" index="0"]
+
+_sections_unfolded = [ "Transform" ]
 
 [node name="TileMap" type="TileMap" parent="." index="0"]
 
@@ -56,5 +59,13 @@ editor_draw_limits = false
 editor_draw_drag_margin = false
 
 [node name="ConstructionWorker" parent="." index="3" instance=ExtResource( 3 )]
+
+position = Vector2( 19.0249, -203.635 )
+
+[node name="EnemySpawner" parent="." index="4" instance=ExtResource( 4 )]
+
+position = Vector2( 157.23, 52.384 )
+scale = Vector2( 1, 7.95407 )
+_sections_unfolded = [ "Transform" ]
 
 
