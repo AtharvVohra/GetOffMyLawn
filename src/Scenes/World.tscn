@@ -5,7 +5,7 @@
 [ext_resource path="res://Scenes/ConstructionWorker.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/EnemySpawner.tscn" type="PackedScene" id=4]
 
-[node name="World" type="Node2D" index="0"]
+[node name="World" type="Node2D"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -64,7 +64,7 @@ position = Vector2( 19.0249, -203.635 )
 
 [node name="EnemySpawner" parent="." index="4" instance=ExtResource( 4 )]
 
-position = Vector2( 157.23, 52.384 )
+position = Vector2( 472.23, 3.384 )
 scale = Vector2( 1, 7.95407 )
 _sections_unfolded = [ "Transform" ]
 

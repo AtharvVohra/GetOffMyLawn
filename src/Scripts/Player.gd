@@ -104,3 +104,9 @@ func movement_loop(delta):
 func _on_HurtBox_body_entered(body):
 	if body.has_method("take_damage"):
 		body.take_damage(500)
+
+func takeDamage(damage):
+	health -= 1
+	if health <= 0:
+		$CollisionShape2D.disabled = true
+		hide()
