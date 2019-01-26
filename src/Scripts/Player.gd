@@ -14,6 +14,16 @@ var animNew
 export var attacking = false
 var health = 100.0
 
+var lightAttack = false
+var playerLightDamage = 10 
+var heavyAttack = false
+var playerHeavyDamage = 20
+var specialAttack = false
+var playerSpecialDamage = 30
+
+var attackCounter = 0
+var special = false
+
 func _ready():
 	set_physics_process(true)
 
@@ -49,15 +59,39 @@ func controls_loop(delta):
 	var DOWN	= Input.is_action_pressed("ui_down")
 	var LIGHT_ATTACK = Input.is_action_just_pressed("ui_light_attack")
 	var HEAVY_ATTACK = Input.is_action_just_pressed("ui_heavy_attack")
+	
+	
 
 	if attacking:
 		$HurtBox/CollisionShape2D.disabled = false
 	else:
 		$HurtBox/CollisionShape2D.disabled = true
+		
 	if LIGHT_ATTACK and !attacking:
-		$AnimationPlayer.play("light_attack")
+		if(special):
+			$AnimationPlayer.play("special_attack")
+			special = false
+			attackCounter = 0
+		else:
+			$AnimationPlayer.play("light_attack")
+			attackCounter = attackCounter + 1
+			if attackCounter == 3:
+				special = true 
+		
 	if HEAVY_ATTACK and !attacking:
-		$AnimationPlayer.play("heavy_attack")
+		if(special):
+			$AnimationPlayer.play("special_attack")
+			special = false
+			attackCounter = 0
+		else:
+			$AnimationPlayer.play("heavy_attack")
+			attackCounter += 1
+			if attackCounter == 3:
+				special = true
+	
+	
+		
+		
 	if !attacking:
 		movedir.x = -int(LEFT) + int(RIGHT)
 		movedir.y = -int(UP) + int(DOWN)
