@@ -22,6 +22,9 @@ func _physics_process(delta):
 	#if playerControlEnabled:
 	controls_loop(delta)
 	movement_loop(delta)
+	$CanvasLayer/Control/HealthBar.updateHealth(float(health)/100)
+	if health > 0:
+		health -= 1
 	#updateCamera()
 
 func updateCamera():
