@@ -32,9 +32,9 @@ func _ready():
 
 func _physics_process(delta):
 	mousePos = get_global_mouse_position()
-	#if playerControlEnabled:
-	controls_loop(delta)
-	movement_loop(delta)
+	if health > 0:
+		controls_loop(delta)
+		movement_loop(delta)
 	$CanvasLayer/Control/HealthBar.updateHealth(float(health)/100)
 
 
