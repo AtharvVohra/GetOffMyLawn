@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/HealthBar.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Assets/PlayerHealthBar.png" type="Texture" id=2]
+[ext_resource path="res://Assets/PlayerHealthBG.png" type="Texture" id=3]
 
-[node name="HealthBar" type="Control"]
+[node name="HealthBar" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -20,19 +21,22 @@ size_flags_vertical = 1
 script = ExtResource( 1 )
 _sections_unfolded = [ "Anchor", "Margin", "Rect", "Visibility" ]
 
-[node name="HealthBarBG" type="Sprite" parent="." index="0"]
-
-modulate = Color( 1, 0, 0, 1 )
-scale = Vector2( 3, 0.6 )
-texture = ExtResource( 2 )
-offset = Vector2( 32, 30 )
-_sections_unfolded = [ "Offset", "Transform", "Visibility" ]
-
-[node name="HealthBar" type="Sprite" parent="." index="1"]
+[node name="HealthBar" type="Sprite" parent="." index="0"]
 
 modulate = Color( 0.03125, 1, 0, 1 )
+position = Vector2( 132.596, 0 )
 scale = Vector2( 3, 0.6 )
+z_index = 1
 texture = ExtResource( 2 )
+offset = Vector2( 32, 30 )
+_sections_unfolded = [ "Offset", "Transform", "Visibility", "Z Index" ]
+
+[node name="HealthBarBG" type="Sprite" parent="." index="1"]
+
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 135.051, 0 )
+scale = Vector2( 3, 0.6 )
+texture = ExtResource( 3 )
 offset = Vector2( 32, 30 )
 _sections_unfolded = [ "Offset", "Transform", "Visibility" ]
 
