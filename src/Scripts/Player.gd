@@ -79,12 +79,12 @@ func controls_loop(delta):
 		movedir = Vector2(0, 0)
 
 	if movedir.x > 0:
-		#anim = "PlayerWalkingRight"
+		anim = "walking"
 		if $Sprite.flip_h == true:
 			$Sprite.flip_h = false
 			$HurtBox.position.x *= -1
 	elif movedir.x < 0:
-		#anim = "PlayerWalkingRight"
+		anim = "walking"
 		if $Sprite.flip_h == false:
 			$Sprite.flip_h = true
 			$HurtBox.position.x *= -1
@@ -94,11 +94,11 @@ func movement_loop(delta):
 	var collision = move_and_collide(motion*delta)
 	if collision:
 		move_and_slide(motion)
-	if movedir == Vector2():
-		anim = "Idle"
+	if movedir == Vector2() and !attacking:
+		anim = "idle"
 	if anim != animNew:
 		animNew = anim
-		#AnimNode.play(anim)
+		$AnimationPlayer.play(anim)
 		
 
 func _on_HurtBox_body_entered(body):
