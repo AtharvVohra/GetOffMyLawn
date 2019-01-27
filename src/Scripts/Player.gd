@@ -48,7 +48,7 @@ func controls_loop(delta):
 		$HurtBox/CollisionShape2D.disabled = false
 	else:
 		$HurtBox/CollisionShape2D.disabled = true
-		
+	
 	if LIGHT_ATTACK and !attacking:
 		if(special):
 			$AnimationPlayer.play("special_attack")

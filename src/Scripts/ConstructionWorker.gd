@@ -72,9 +72,10 @@ func take_damage(damage, damageType):
 	health -= damage
 	$HealthBar.value = (float(health)/float(maxHealth))*100
 	#Light=0, Heavy=1, Special == 2
-	if damageType == 2:
+	if damageType == 0: #Light attack
+		move_and_slide(Vector2(velocity.x * -10,0))
+	if damageType == 3:
 		# play animation for 1 sec
-		$HealthBar.value -= 20
 		if $stuntimer.time_left != 0:
 			$stuntimer.start()
 			MOVE_SPEED = 300
