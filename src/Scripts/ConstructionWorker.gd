@@ -9,7 +9,8 @@ var playerPosition
 var playerDistance
 var velocity
 var MOVE_SPEED = 300
-var health = 60
+export var maxHealth = 60.0
+var health = maxHealth
 	
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -41,7 +42,9 @@ func move():
 func take_damage(damage, damageType):
 	# if 3rd player hit, then down/stun, move back
 	health -= damage
-	if damageType == 'specialAttack':
+	$HealthBar.value = (float(health)/float(maxHealth))*100
+	#Light=0, Heavy=1, Special == 2
+	if damageType == 2:
 		# play animation for 1 sec
 		$HealthBar.value -= 20
 		if $stuntimer.time_left != 0:

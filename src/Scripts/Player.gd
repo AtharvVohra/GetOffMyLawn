@@ -14,12 +14,11 @@ var animNew
 export var attacking = false
 var health = 100.0
 
-export var lightAttack = false
 export var playerLightDamage = 10 
-export var heavyAttack = false
 export var playerHeavyDamage = 20
-export var specialAttack = false
 export var playerSpecialDamage = 30
+export(int, "lightAttack", "heavyAttack", "specialAttack") var attackType
+var damage = [10, 20, 30]
 
 var attackCounter = 0
 var special = false
@@ -103,7 +102,7 @@ func movement_loop(delta):
 
 func _on_HurtBox_body_entered(body):
 	if body.has_method("take_damage"):
-		body.take_damage(500)
+		body.take_damage(damage[attackType], attackType)
 
 func takeDamage(damage):
 	health -= 1
