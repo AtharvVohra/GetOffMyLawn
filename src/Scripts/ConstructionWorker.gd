@@ -22,20 +22,20 @@ func _process(delta):
 	 
 	playerDistance = position.distance_to(playerPosition)
 	# if distance < 20, attack
-	if(playerDistance < 64):
+	if(playerDistance < 80):
 		attack()
 	else:
 		move()
 		
 func attack():
-	playerNode.health -= 20
+	playerNode.takeDamage(20)
 	# play the animation and sound effect stuff
 	
 func move():
 	# get the direction, move and slide
 	velocity = (playerPosition - position).normalized() * MOVE_SPEED
     # rotation = velocity.angle()
-	if (playerPosition - position).length() > 100:
+	if (playerPosition - position).length() > 80:
     	move_and_slide(velocity)
 		
 func take_damage(damage):
