@@ -216,6 +216,8 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="HealthBar" parent="CanvasLayer/Control" index="0" instance=ExtResource( 4 )]
 
+_sections_unfolded = [ "Anchor", "Margin", "Material", "Rect", "Theme", "Visibility" ]
+
 [connection signal="body_entered" from="HurtBox" to="." method="_on_HurtBox_body_entered"]
 
 
