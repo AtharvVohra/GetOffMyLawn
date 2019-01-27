@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/LawnTileset.res" type="TileSet" id=1]
-[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/ConstructionWorker.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/EnemySpawner.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/HouseSteps.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/HouseSteps.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/ConstructionWorker.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/EnemySpawner.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/GrandmaObjects.tscn" type="PackedScene" id=6]
 
-[node name="World" type="Node2D" index="0"]
+[node name="World" type="Node2D"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -58,11 +59,16 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Player" parent="." index="2" instance=ExtResource( 2 )]
+[node name="HouseSteps" parent="." index="2" instance=ExtResource( 2 )]
+
+position = Vector2( -516.397, 24.4352 )
+
+[node name="Player" parent="." index="3" instance=ExtResource( 3 )]
 
 position = Vector2( -217.124, -33.4037 )
+attackType = 1
 
-[node name="Camera2D" type="Camera2D" parent="." index="3"]
+[node name="Camera2D" type="Camera2D" parent="." index="4"]
 
 anchor_mode = 1
 rotating = false
@@ -87,18 +93,31 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
 
-[node name="ConstructionWorker" parent="." index="4" instance=ExtResource( 3 )]
+[node name="ConstructionWorker" parent="." index="5" instance=ExtResource( 4 )]
 
 position = Vector2( 19.0249, -203.635 )
+maxHealth = 60.0
 
-[node name="EnemySpawner" parent="." index="5" instance=ExtResource( 4 )]
+[node name="EnemySpawner" parent="." index="6" instance=ExtResource( 5 )]
 
 position = Vector2( 472.23, 3.384 )
 scale = Vector2( 1, 7.95407 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="HouseSteps" parent="." index="6" instance=ExtResource( 5 )]
+[node name="StaticBody2D" parent="." index="7" instance=ExtResource( 6 )]
 
-position = Vector2( -516.397, 24.4352 )
+position = Vector2( -413.769, 162.087 )
+
+[node name="StaticBody2D2" parent="." index="8" instance=ExtResource( 6 )]
+
+position = Vector2( -329.875, 56.2009 )
+
+[node name="StaticBody2D3" parent="." index="9" instance=ExtResource( 6 )]
+
+position = Vector2( -437.39, -87.9667 )
+
+[node name="StaticBody2D4" parent="." index="10" instance=ExtResource( 6 )]
+
+position = Vector2( -341.278, -161.272 )
 
 

@@ -148,12 +148,10 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
 NORMAL_SPEED = 500
 attacking = false
-lightAttack = false
 playerLightDamage = 10
-heavyAttack = false
 playerHeavyDamage = 20
-specialAttack = false
 playerSpecialDamage = 30
+attackType = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 

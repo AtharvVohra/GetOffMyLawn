@@ -9,7 +9,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 32, 32 )
 
-[node name="Enemy" type="KinematicBody2D"]
+[node name="Enemy" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 4
@@ -17,6 +17,7 @@ collision_mask = 7
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
+maxHealth = 60.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
@@ -75,12 +76,12 @@ min_value = 0.0
 max_value = 100.0
 step = 1.0
 page = 0.0
-value = 60.0
+value = 100.0
 exp_edit = false
 rounded = false
-texture_under = ExtResource( 3 )
+texture_under = null
 texture_over = null
-texture_progress = null
+texture_progress = ExtResource( 3 )
 fill_mode = 1
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
