@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Assets/sounds/GetOffMyLawn.wav" type="AudioStream" id=1]
 
-[node name="BGMPlayer" type="AudioStreamPlayer" index="0"]
+[node name="BGMPlayer" type="AudioStreamPlayer"]
 
 stream = ExtResource( 1 )
 volume_db = -10.0
