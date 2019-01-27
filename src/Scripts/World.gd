@@ -32,7 +32,7 @@ func enemyDied():
 	enemyCount -= 1
 	if enemyCount == 0:
 		var wave = $EnemySpawner.wave
-		if wave <= 7:
+		if wave <= 6:
 			updateText(wave-1)
 		else:
 			victory()
