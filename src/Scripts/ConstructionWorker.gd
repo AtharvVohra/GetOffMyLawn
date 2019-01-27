@@ -15,6 +15,7 @@ export var damage = 10
 var anim
 var animNew
 export var attacking = false
+var stunned = false
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -23,28 +24,29 @@ func _ready():
 
 
 func _process(delta):
-	playerPosition = playerNode.position
-	 
-	playerDistance = position.distance_to(playerPosition)
-	# if distance < 20, attack
-	if attacking:
-		$HurtBox/CollisionShape2D.disabled = false
-	else:
-		$HurtBox/CollisionShape2D.disabled = true
-		
-	if(playerDistance < 60):
-		attack()
-		anim = "Attack"
-	else:
-		move()
-		anim = "Walking"
-		
-	#if movedir == Vector2() and !attacking:
-	#	anim = "idle"
-	if anim != animNew:
-		animNew = anim
-		$Whoosh2.play()
-		$AnimationPlayer.play(anim)
+	if !stunned:
+		playerPosition = playerNode.position
+		 
+		playerDistance = position.distance_to(playerPosition)
+		# if distance < 20, attack
+		if attacking:
+			$HurtBox/CollisionShape2D.disabled = false
+		else:
+			$HurtBox/CollisionShape2D.disabled = true
+			
+		if(playerDistance < 60):
+			attack()
+			anim = "Attack"
+		else:
+			move()
+			anim = "Walking"
+			
+		#if movedir == Vector2() and !attacking:
+		#	anim = "idle"
+		if anim != animNew:
+			animNew = anim
+			$Whoosh2.play()
+			$AnimationPlayer.play(anim)
 	
 	
 		
@@ -75,13 +77,10 @@ func take_damage(damage, damageType):
 	#Light=0, Heavy=1, Special == 2
 	if damageType == 0: #Light attack
 		move_and_slide(Vector2(velocity.x * -10,0))
-	if damageType == 3:
+	if damageType == 2:
 		# play animation for 1 sec
-		if $stuntimer.time_left != 0:
-			$stuntimer.start()
-			#MOVE_SPEED = 300
-		else:
-			MOVE_SPEED = 0
+		stunned = true
+		$AnimationPlayer.play("Stun")
 		
 	if health <= 0:
 		$DeathSound.play()
@@ -91,3 +90,8 @@ func take_damage(damage, damageType):
 func _on_HurtBox_body_entered(body):
 	if body.is_in_group("Player"):
 		playerNode.take_damage(damage)
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "Stun":
+		stunned = false
