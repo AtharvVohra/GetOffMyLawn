@@ -6,7 +6,7 @@ var positionInArea = Vector2(0,0)
 export (PackedScene) var enemy
 var x = 0
 var wave = 1
-var waves = [1, 2, 3, 4, 5, 6, 7]
+var waves = [1, 2, 3, 4, 5, 6, 7, 10]
 var world
 
 func _ready():

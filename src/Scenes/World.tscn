@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -74,6 +74,39 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
+[sub_resource type="Animation" id=3]
+
+resource_name = "Victory Sequence"
+length = 5.0
+loop = false
+step = 0.1
+tracks/0/type = "method"
+tracks/0/path = NodePath("Player")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "gameOver"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Victory:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 1, 0.15625, 0 ), Color( 0, 1, 0.15625, 1 ) ]
+}
+
 [node name="World" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
@@ -122,6 +155,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="TileMap" type="TileMap" parent="." index="4"]
 
+editor/display_folded = true
 z_index = -50
 mode = 0
 tile_set = ExtResource( 5 )
@@ -204,7 +238,7 @@ __meta__ = {
 
 [node name="Game Over" type="Label" parent="." index="6"]
 
-modulate = Color( 1, 0, 0, 0 )
+modulate = Color( 0, 0, 0, 0 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -226,7 +260,31 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Visibility" ]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7"]
+[node name="Victory" type="Label" parent="." index="7"]
+
+modulate = Color( 0, 1, 0.15625, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -381.0
+margin_top = -38.0
+margin_right = -270.0
+margin_bottom = -24.0
+rect_scale = Vector2( 7, 7 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "House Defended"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "Visibility" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -235,11 +293,11 @@ playback_default_blend_time = 0.0
 playback_speed = 1.0
 "anims/Game Over Sequence" = SubResource( 1 )
 "anims/New Wave" = SubResource( 2 )
+"anims/Victory Sequence" = SubResource( 3 )
 blend_times = [  ]
 
-[node name="Panel" type="Panel" parent="." index="8"]
+[node name="Panel" type="Panel" parent="." index="9"]
 
-modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -256,7 +314,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Visibility" ]
 
-[node name="Background 1" type="Sprite" parent="." index="9"]
+[node name="Background 1" type="Sprite" parent="." index="10"]
 
 position = Vector2( 400.902, -132.18 )
 texture = ExtResource( 8 )
@@ -281,12 +339,12 @@ texture = ExtResource( 8 )
 position = Vector2( -709.439, 0 )
 texture = ExtResource( 6 )
 
-[node name="Foreground" type="Sprite" parent="." index="10"]
+[node name="Foreground" type="Sprite" parent="." index="11"]
 
 position = Vector2( 399.511, -134.962 )
 texture = ExtResource( 6 )
 
-[node name="WaveText" type="Label" parent="." index="11"]
+[node name="WaveText" type="Label" parent="." index="12"]
 
 modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
