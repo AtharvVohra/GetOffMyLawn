@@ -31,7 +31,8 @@ func spawn():
 	world.add_child(spawn)
 	
 func spawnWave():
-	for i in range(waves[wave]):
-		spawn()
-		world.enemyCount += 1
-	wave += 1
+	if wave < len(waves):
+		for i in range(waves[wave]):
+			spawn()
+			world.enemyCount += 1
+		wave += 1
