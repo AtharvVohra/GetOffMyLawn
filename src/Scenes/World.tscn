@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Assets/City (Public Domain from OpenGameArt)/BG.png" type="Texture" id=7]
 [ext_resource path="res://Assets/City (Public Domain from OpenGameArt)/Background 1.png" type="Texture" id=8]
 [ext_resource path="res://Assets/City (Public Domain from OpenGameArt)/Middle.png" type="Texture" id=9]
+[ext_resource path="res://Assets/HouseForeground.png" type="Texture" id=10]
 
 [sub_resource type="Animation" id=1]
 
@@ -237,17 +238,47 @@ playback_speed = 1.0
 "anims/New Wave" = SubResource( 2 )
 blend_times = [  ]
 
-[node name="Panel" type="Panel" parent="." index="8"]
+[node name="Background 1" type="Sprite" parent="." index="8"]
+
+position = Vector2( 400.902, -132.18 )
+texture = ExtResource( 8 )
+
+[node name="Foreground3" type="Sprite" parent="Background 1" index="0"]
+
+position = Vector2( -1.39102, -2.78201 )
+texture = ExtResource( 6 )
+
+[node name="Background 1" type="Sprite" parent="Background 1" index="1"]
+
+position = Vector2( -278.211, -1.39105 )
+texture = ExtResource( 8 )
+
+[node name="Foreground" type="Sprite" parent="Background 1" index="2"]
+
+position = Vector2( -279.602, -2.7821 )
+texture = ExtResource( 6 )
+
+[node name="Background 2" type="Sprite" parent="Background 1" index="3"]
+
+position = Vector2( -715.003, 0 )
+texture = ExtResource( 8 )
+
+[node name="Foreground2" type="Sprite" parent="Background 1" index="4"]
+
+position = Vector2( -709.439, 0 )
+texture = ExtResource( 6 )
+
+[node name="Panel" type="Panel" parent="." index="9"]
 
 modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -510.0
-margin_top = -298.0
-margin_right = 532.0
-margin_bottom = -64.0
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 530.0
+margin_bottom = -66.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -256,37 +287,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Visibility" ]
 
-[node name="Background 1" type="Sprite" parent="." index="9"]
-
-position = Vector2( 400.902, -132.18 )
-texture = ExtResource( 8 )
-
-[node name="Background 1" type="Sprite" parent="Background 1" index="0"]
-
-position = Vector2( -278.211, -1.39105 )
-texture = ExtResource( 8 )
-
-[node name="Foreground" type="Sprite" parent="Background 1" index="1"]
-
-position = Vector2( -279.602, -2.7821 )
-texture = ExtResource( 6 )
-
-[node name="Background 2" type="Sprite" parent="Background 1" index="2"]
-
-position = Vector2( -715.003, 0 )
-texture = ExtResource( 8 )
-
-[node name="Foreground2" type="Sprite" parent="Background 1" index="3"]
-
-position = Vector2( -709.439, 0 )
-texture = ExtResource( 6 )
-
-[node name="Foreground" type="Sprite" parent="." index="10"]
-
-position = Vector2( 399.511, -134.962 )
-texture = ExtResource( 6 )
-
-[node name="WaveText" type="Label" parent="." index="11"]
+[node name="WaveText" type="Label" parent="." index="10"]
 
 modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
@@ -310,6 +311,11 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "Visibility" ]
+
+[node name="HouseForeground" type="Sprite" parent="." index="11"]
+
+position = Vector2( -363.624, 137.129 )
+texture = ExtResource( 10 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
