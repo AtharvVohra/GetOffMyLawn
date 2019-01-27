@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/grannylight.wav-0539febee4e13a48a32d7e77358a1917.sample"
+
+[deps]
+
+source_file="res://Assets/sounds/grannylight.wav"
+dest_files=[ "res://.import/grannylight.wav-0539febee4e13a48a32d7e77358a1917.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

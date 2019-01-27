@@ -5,7 +5,7 @@
 [ext_resource path="res://Scenes/EnemySpawner.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/LawnTileset.res" type="TileSet" id=4]
 
-[node name="World" type="Node2D" index="0"]
+[node name="World" type="Node2D"]
 
 _sections_unfolded = [ "Transform" ]
 

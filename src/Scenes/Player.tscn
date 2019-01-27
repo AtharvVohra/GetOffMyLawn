@@ -201,10 +201,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 1, 2, 3, 4, 5, 6 ]
+"values": [ 0, 1, 2, 3, 4, 5, 6 ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("Sprite:hframes")
@@ -216,7 +216,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 11 ]
+"values": [ 7 ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath(".:attackType")
@@ -273,7 +273,7 @@ tracks/2/keys = {
 "values": [ ExtResource( 6 ) ]
 }
 
-[node name="Player" type="KinematicBody2D" index="0" groups=[
+[node name="Player" type="KinematicBody2D" groups=[
 "Player",
 ]]
 
@@ -300,7 +300,7 @@ shape = SubResource( 1 )
 
 scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
-hframes = 11
+hframes = 7
 frame = 6
 _sections_unfolded = [ "Animation", "Region", "Transform", "Visibility" ]
 

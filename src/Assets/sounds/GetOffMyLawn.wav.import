@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/GetOffMyLawn.wav-ee856a64d61fdd8985a82ac2bd677f07.sample"
+
+[deps]
+
+source_file="res://Assets/sounds/GetOffMyLawn.wav"
+dest_files=[ "res://.import/GetOffMyLawn.wav-ee856a64d61fdd8985a82ac2bd677f07.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
