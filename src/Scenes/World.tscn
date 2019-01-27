@@ -5,7 +5,7 @@
 [ext_resource path="res://Scenes/EnemySpawner.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/LawnTileset.res" type="TileSet" id=4]
 
-[node name="World" type="Node2D"]
+[node name="World" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -39,7 +39,9 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
 
-[node name="ConstructionWorker" parent="." index="2" instance=ExtResource( 2 )]
+[node name="ConstructionWorker" parent="." index="2" groups=[
+"Enemy",
+] instance=ExtResource( 2 )]
 
 position = Vector2( 19.0249, -203.635 )
 
