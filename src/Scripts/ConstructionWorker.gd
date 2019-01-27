@@ -11,7 +11,10 @@ var velocity
 var MOVE_SPEED = 300
 export var maxHealth = 60.0
 var health = maxHealth
-	
+export var damage = 10
+var anim
+var animNew
+
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
@@ -25,11 +28,21 @@ func _process(delta):
 	# if distance < 20, attack
 	if(playerDistance < 80):
 		attack()
+		anim = "Attack"
 	else:
 		move()
+		anim = "Walking"
+		
+	#if movedir == Vector2() and !attacking:
+	#	anim = "idle"
+	if anim != animNew:
+		animNew = anim
+		$AnimationPlayer.play(anim)
+	
+	
 		
 func attack():
-	playerNode.takeDamage(20)
+	pass#playerNode.takeDamage(damage)
 	# play the animation and sound effect stuff
 	
 func move():

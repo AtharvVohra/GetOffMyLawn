@@ -105,7 +105,7 @@ func _on_HurtBox_body_entered(body):
 		body.take_damage(damage[attackType], attackType)
 
 func takeDamage(damage):
-	health -= 1
+	health -= damage
 	if health <= 0:
 		$CollisionShape2D.disabled = true
 		hide()
