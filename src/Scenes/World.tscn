@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Assets/City (Public Domain from OpenGameArt)/BG.png" type="Texture" id=7]
 [ext_resource path="res://Assets/City (Public Domain from OpenGameArt)/Background 1.png" type="Texture" id=8]
 [ext_resource path="res://Assets/City (Public Domain from OpenGameArt)/Middle.png" type="Texture" id=9]
+[ext_resource path="res://Assets/HouseForeground.png" type="Texture" id=10]
 
 [sub_resource type="Animation" id=1]
 
@@ -319,32 +320,42 @@ _sections_unfolded = [ "Visibility" ]
 position = Vector2( 400.902, -132.18 )
 texture = ExtResource( 8 )
 
-[node name="Background 1" type="Sprite" parent="Background 1" index="0"]
+[node name="Foreground3" type="Sprite" parent="Background 1" index="0"]
+
+position = Vector2( -1.39102, -2.78201 )
+texture = ExtResource( 6 )
+
+[node name="Background 1" type="Sprite" parent="Background 1" index="1"]
 
 position = Vector2( -278.211, -1.39105 )
 texture = ExtResource( 8 )
 
-[node name="Foreground" type="Sprite" parent="Background 1" index="1"]
+[node name="Foreground" type="Sprite" parent="Background 1" index="2"]
 
 position = Vector2( -279.602, -2.7821 )
 texture = ExtResource( 6 )
 
-[node name="Background 2" type="Sprite" parent="Background 1" index="2"]
+[node name="Background 2" type="Sprite" parent="Background 1" index="3"]
 
 position = Vector2( -715.003, 0 )
 texture = ExtResource( 8 )
 
-[node name="Foreground2" type="Sprite" parent="Background 1" index="3"]
+[node name="Foreground2" type="Sprite" parent="Background 1" index="4"]
 
 position = Vector2( -709.439, 0 )
 texture = ExtResource( 6 )
 
-[node name="Foreground" type="Sprite" parent="." index="11"]
+[node name="HouseForeground" type="Sprite" parent="." index="11"]
 
-position = Vector2( 399.511, -134.962 )
-texture = ExtResource( 6 )
+position = Vector2( -363.624, 137.129 )
+texture = ExtResource( 10 )
 
-[node name="WaveText" type="Label" parent="." index="12"]
+[node name="Foreground" type="Sprite" parent="." index="12"]
+
+modulate = Color( 1, 1, 1, 0 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="WaveText" type="Label" parent="." index="13"]
 
 modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
