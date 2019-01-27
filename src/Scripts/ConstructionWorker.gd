@@ -9,7 +9,7 @@ var playerPosition
 var playerDistance
 var velocity
 var MOVE_SPEED = 300
-var health = 40
+var health = 60
 	
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -38,21 +38,18 @@ func move():
 	if (playerPosition - position).length() > 80:
     	move_and_slide(velocity)
 		
-func take_damage(damage):
+func take_damage(damage, damageType):
 	# if 3rd player hit, then down/stun, move back
 	health -= damage
-	if health <= 0:
-		queue_free()
-	if playerNode.specialAttack:
+	if damageType == 'specialAttack':
 		# play animation for 1 sec
-		health -= playerNode.playerSpecialDamage
+		$HealthBar.value -= 20
 		if $stuntimer.time_left != 0:
 			$stuntimer.start()
 			MOVE_SPEED = 300
 		else:
 			MOVE_SPEED = 0
-	elif playerNode.heavyAttack:
-		health -= playerNode.playerHeavyDamage
-	else:
-		health -= playerNode.playerLightDamage
+		
+	if health <= 0:
+		queue_free()
 		
