@@ -72,7 +72,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 1, 9, 10 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+"values": [ Color( 0.992188, 1, 0, 0 ), Color( 0.992188, 1, 0, 1 ), Color( 0.992188, 1, 0, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -115,7 +115,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="HouseForeground" type="Sprite" parent="." index="0"]
 
-editor/display_folded = true
 position = Vector2( -363.624, 137.129 )
 texture = ExtResource( 2 )
 __meta__ = {
@@ -136,7 +135,7 @@ bounce = 0.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HouseForeground/StaticBody2D" index="0"]
 
 build_mode = 0
-polygon = PoolVector2Array( -167.803, 97.288, 69.0385, -213.857, 71.0287, -121.641 )
+polygon = PoolVector2Array( -167.803, 97.288, -151.745, -73.118, 69.0385, -213.857, 71.0287, -121.641, -46.3738, -112.024, -148.503, -23.4046 )
 
 [node name="Player" parent="." index="1" instance=ExtResource( 3 )]
 
@@ -322,25 +321,7 @@ playback_speed = 1.0
 "anims/Victory Sequence" = SubResource( 3 )
 blend_times = [  ]
 
-[node name="Panel" type="Panel" parent="." index="10"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -510.0
-margin_top = -298.0
-margin_right = 532.0
-margin_bottom = -64.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-_sections_unfolded = [ "Visibility" ]
-
-[node name="Background 1" type="Sprite" parent="." index="11"]
+[node name="Background 1" type="Sprite" parent="." index="10"]
 
 position = Vector2( 400.902, -132.18 )
 texture = ExtResource( 9 )
@@ -370,14 +351,33 @@ texture = ExtResource( 9 )
 position = Vector2( -709.439, 0 )
 texture = ExtResource( 7 )
 
-[node name="Foreground" type="Sprite" parent="." index="12"]
+[node name="Foreground" type="Sprite" parent="." index="11"]
 
 modulate = Color( 1, 1, 1, 0 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="WaveText" type="Label" parent="." index="13"]
+[node name="Panel" type="Panel" parent="." index="12"]
 
 modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -510.0
+margin_top = -298.0
+margin_right = 532.0
+margin_bottom = -64.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Visibility" ]
+
+[node name="WaveText" type="Label" parent="." index="13"]
+
+modulate = Color( 0.992188, 1, 0, 0 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
