@@ -17,6 +17,8 @@ var animNew
 export var attacking = false
 var stunned = false
 
+signal enemyDeath
+
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
@@ -84,6 +86,9 @@ func take_damage(damage, damageType):
 		
 	if health <= 0:
 		$DeathSound.play()
+		emit_signal("enemyDeath")
+		var worldNode = get_tree().root.get_node("World")
+		worldNode.enemyDied()
 		queue_free()
 
 

@@ -21,13 +21,7 @@ func _ready():
 func _process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
-	x += 1
-	if x % 100 == 0 and wave < 5:
-		var enemyCount = len(get_tree().get_nodes_in_group("Enemy"))
-		if enemyCount == 0:
-			for i in range(waves[wave]):
-				spawn()
-			wave += 1
+	pass
 
 func spawn():
 	positionInArea.x = (randf() * size.x) - (size.x/2) + centerpos.x + position.x
@@ -35,3 +29,8 @@ func spawn():
 	var spawn = enemy.instance()
 	spawn.position = positionInArea
 	world.add_child(spawn)
+	
+func spawnWave():
+	for i in range(waves[wave]):
+		spawn()
+	wave += 1
