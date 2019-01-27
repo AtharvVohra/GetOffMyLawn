@@ -11,7 +11,8 @@ config_version=3
 [application]
 
 config/name="Get Off My Lawn"
-run/main_scene="res://Scenes/World.tscn"
+run/main_scene="res://Scenes/Menu.tscn"
+run/disable_stdout=true
 config/icon="res://icon.png"
 
 [autoload]
