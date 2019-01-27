@@ -33,4 +33,5 @@ func spawn():
 func spawnWave():
 	for i in range(waves[wave]):
 		spawn()
+		world.enemyCount += 1
 	wave += 1
