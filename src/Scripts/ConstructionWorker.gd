@@ -8,7 +8,7 @@ var movedir
 var playerPosition
 var playerDistance
 var velocity
-var MOVE_SPEED = 300
+export var MOVE_SPEED = 300
 export var maxHealth = 60.0
 var health = maxHealth
 export var damage = 10
@@ -79,7 +79,7 @@ func take_damage(damage, damageType):
 		# play animation for 1 sec
 		if $stuntimer.time_left != 0:
 			$stuntimer.start()
-			MOVE_SPEED = 300
+			#MOVE_SPEED = 300
 		else:
 			MOVE_SPEED = 0
 		

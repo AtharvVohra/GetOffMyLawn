@@ -123,7 +123,7 @@ tracks/3/keys = {
 "values": [ false ]
 }
 
-[node name="Enemy" type="KinematicBody2D" groups=[
+[node name="Enemy" type="KinematicBody2D" index="0" groups=[
 "Enemy",
 ]]
 
@@ -133,6 +133,7 @@ collision_mask = 7
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
+MOVE_SPEED = 150
 maxHealth = 60.0
 damage = 10
 attacking = true

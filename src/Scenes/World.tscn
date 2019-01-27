@@ -38,13 +38,14 @@ tracks/1/keys = {
 } ]
 }
 
-[node name="World" type="Node2D" index="0"]
+[node name="World" type="Node2D"]
 
 _sections_unfolded = [ "Transform" ]
 
 [node name="Player" parent="." index="0" instance=ExtResource( 1 )]
 
 position = Vector2( -396.361, 111.632 )
+NORMAL_SPEED = 250
 attackType = 1
 
 [node name="Camera2D" type="Camera2D" parent="." index="1"]

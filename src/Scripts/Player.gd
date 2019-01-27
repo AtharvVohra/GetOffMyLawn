@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 export var NORMAL_SPEED = 500
-var MOTION_SPEED = NORMAL_SPEED
+var MOTION_SPEED
 var movedir = Vector2(0,0)
 var CollisionNode
 var playerPos
@@ -29,6 +29,7 @@ func _ready():
 	set_physics_process(true)
 	$CanvasLayer/Control.show()
 	worldNode = get_tree().root.get_node("World")
+	MOTION_SPEED = NORMAL_SPEED
 
 func _physics_process(delta):
 	mousePos = get_global_mouse_position()
