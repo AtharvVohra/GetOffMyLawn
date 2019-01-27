@@ -25,6 +25,7 @@ var special = false
 
 func _ready():
 	set_physics_process(true)
+	$CanvasLayer/Control.show()
 
 func _physics_process(delta):
 	mousePos = get_global_mouse_position()
@@ -109,3 +110,8 @@ func take_damage(damage):
 	if health <= 0:
 		$CollisionShape2D.disabled = true
 		hide()
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if(anim_name != "walking"):
+		animNew = "idle"
