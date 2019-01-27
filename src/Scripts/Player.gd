@@ -51,9 +51,12 @@ func controls_loop(delta):
 	
 	if LIGHT_ATTACK and !attacking:
 		if(special):
+			$SpecAttackSound.play()
+			$Whoosh1.play()
 			$AnimationPlayer.play("special_attack")
 			special = false
 			attackCounter = 0
+			
 		else:
 			$AnimationPlayer.play("light_attack")
 			attackCounter = attackCounter + 1
@@ -62,10 +65,15 @@ func controls_loop(delta):
 		
 	if HEAVY_ATTACK and !attacking:
 		if(special):
+			$SpecAttackSound.play()
+			$Whoosh1.play()
 			$AnimationPlayer.play("special_attack")
 			special = false
 			attackCounter = 0
+			
 		else:
+			$HeavyAttackSound.play()
+			$Whoosh1.play()
 			$AnimationPlayer.play("heavy_attack")
 			attackCounter += 1
 			if attackCounter == 3:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/GrammaMorley-SpecialAttack.png" type="Texture" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://Assets/GrammaMorley-LightAttack.png" type="Texture" id=5]
 [ext_resource path="res://Assets/GrammaMorley-Walk.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/HealthBar.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/sounds/grannylight.wav" type="AudioStream" id=8]
+[ext_resource path="res://Assets/sounds/granyspecial.wav" type="AudioStream" id=9]
+[ext_resource path="res://Assets/sounds/whoosh1.wav" type="AudioStream" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -273,7 +276,7 @@ tracks/2/keys = {
 "values": [ ExtResource( 6 ) ]
 }
 
-[node name="Player" type="KinematicBody2D" groups=[
+[node name="Player" type="KinematicBody2D" index="0" groups=[
 "Player",
 ]]
 
@@ -353,6 +356,39 @@ _sections_unfolded = [ "Rect" ]
 [node name="HealthBar" parent="CanvasLayer/Control" index="0" instance=ExtResource( 7 )]
 
 _sections_unfolded = [ "Anchor", "Margin", "Material", "Rect", "Theme", "Visibility" ]
+
+[node name="HeavyAttackSound" type="AudioStreamPlayer2D" parent="." index="5"]
+
+stream = ExtResource( 8 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="SpecAttackSound" type="AudioStreamPlayer2D" parent="." index="6"]
+
+stream = ExtResource( 9 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="Whoosh1" type="AudioStreamPlayer2D" parent="." index="7"]
+
+stream = ExtResource( 10 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 
 [connection signal="body_entered" from="HurtBox" to="." method="_on_HurtBox_body_entered"]
 

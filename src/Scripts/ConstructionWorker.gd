@@ -43,6 +43,7 @@ func _process(delta):
 	#	anim = "idle"
 	if anim != animNew:
 		animNew = anim
+		$Whoosh2.play()
 		$AnimationPlayer.play(anim)
 	
 	
@@ -83,6 +84,7 @@ func take_damage(damage, damageType):
 			MOVE_SPEED = 0
 		
 	if health <= 0:
+		$DeathSound.play()
 		queue_free()
 
 
