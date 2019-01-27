@@ -2,9 +2,9 @@ extends Node2D
 
 # class member variables go here, for example:
 var enemyCount = 1
-var waveFinishedText = ["After my constant denial, they called to let me know that were coming to destroy everything I had left. The ambition of a skyscraper towering where my home stood drove them to come in hordes. They were coming to raze my precious memories, they were coming to raze my home. ", 
-"I wasn't going to hand it all over without a fight.", "I remember when Carlos and I first bought the house, just after we got married.","The mornings we spent sipping tea on the porch, talking away as the sun rose are burnt into the walls that I defend.",
-"The grass of the lawn has seen many seasons and a lot of birthday parties. We used to celebrate with a barbeque grill, some balloons, and a lot of heartfelt fun.","Rosa and Angelo might have grown up, but there'll always be a place in the lawn for their kids. I'll make sure of it."
+var waveFinishedText = ["After my constant refusal, they called to let me know that were coming to destroy everything I had left. They want to build a skyscraper towering where my home stands. They were coming to trample my precious memories... They were coming to raze my home. ", 
+"I wasn't going to hand it over without a fight.", "I remember when Carlos and I bought the house, just after we got married.","The mornings we spent sipping tea on the porch, talking away as the sun rose, are burnt into the walls that I defend.",
+"The grass of the lawn has seen many seasons and a lot of birthday parties. We used to celebrate with a barbeque grill, some balloons, and heartfelt fun.","Rosa and Angelo might have grown up, but there'll always be a place in the lawn for their kids. I'll make sure of it."
 , "They thought I had nothing to lose. They know better now.",
 ]
 var victoryText = "The construction workers stood no chance."
