@@ -7,7 +7,7 @@
 [ext_resource path="res://Scenes/EnemySpawner.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/GrandmaObjects.tscn" type="PackedScene" id=6]
 
-[node name="World" type="Node2D"]
+[node name="World" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -96,7 +96,6 @@ editor_draw_drag_margin = false
 [node name="ConstructionWorker" parent="." index="5" instance=ExtResource( 4 )]
 
 position = Vector2( 19.0249, -203.635 )
-maxHealth = 60.0
 
 [node name="EnemySpawner" parent="." index="6" instance=ExtResource( 5 )]
 
@@ -104,20 +103,24 @@ position = Vector2( 472.23, 3.384 )
 scale = Vector2( 1, 7.95407 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="StaticBody2D" parent="." index="7" instance=ExtResource( 6 )]
+[node name="GrandmaObject" parent="." index="7" instance=ExtResource( 6 )]
 
-position = Vector2( -413.769, 162.087 )
+position = Vector2( -343.956, -183.624 )
 
-[node name="StaticBody2D2" parent="." index="8" instance=ExtResource( 6 )]
+[node name="GrandmaObject2" parent="." index="8" instance=ExtResource( 6 )]
 
-position = Vector2( -329.875, 56.2009 )
+position = Vector2( -421.876, -107.175 )
 
-[node name="StaticBody2D3" parent="." index="9" instance=ExtResource( 6 )]
+[node name="GrandmaObject3" parent="." index="9" instance=ExtResource( 6 )]
 
-position = Vector2( -437.39, -87.9667 )
+position = Vector2( -426.787, 150.65 )
 
-[node name="StaticBody2D4" parent="." index="10" instance=ExtResource( 6 )]
+[node name="GrandmaObject4" parent="." index="10" instance=ExtResource( 6 )]
 
-position = Vector2( -341.278, -161.272 )
+position = Vector2( -426.787, 150.65 )
+
+[node name="GrandmaObject5" parent="." index="11" instance=ExtResource( 6 )]
+
+position = Vector2( -349.224, 219.348 )
 
 
