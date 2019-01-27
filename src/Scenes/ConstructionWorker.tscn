@@ -9,13 +9,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 32, 32 )
 
-<<<<<<< Updated upstream
-[node name="Enemy" type="KinematicBody2D" groups=[
-"Enemy",
-]]
-=======
 [node name="Enemy" type="KinematicBody2D" index="0"]
->>>>>>> Stashed changes
 
 input_pickable = false
 collision_layer = 4
