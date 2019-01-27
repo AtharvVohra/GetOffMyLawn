@@ -130,4 +130,4 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		animNew = "idle"
 
 func gameOver():
-	get_tree().change_scene("res://Scenes/World.tscn")
+	get_tree().change_scene("res://Scenes/Menu.tscn")
