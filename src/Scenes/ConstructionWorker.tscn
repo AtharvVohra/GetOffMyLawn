@@ -1,14 +1,15 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/ConstructionWorker.gd" type="Script" id=1]
 [ext_resource path="res://Assets/ConstructionWorker-Attack.png" type="Texture" id=2]
 [ext_resource path="res://Assets/ConstructionHealthBar.png" type="Texture" id=3]
 [ext_resource path="res://Assets/ConstructionWorker-Walk.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/PlayerHurtBox.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 32, 32 )
+extents = Vector2( 13.2936, 32 )
 
 [sub_resource type="Animation" id=2]
 
@@ -51,6 +52,18 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 9 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:attacking")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -95,6 +108,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [ 4 ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:attacking")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [node name="Enemy" type="KinematicBody2D" index="0"]
 
@@ -106,6 +131,7 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
 maxHealth = 60.0
 damage = 10
+attacking = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
@@ -116,7 +142,7 @@ shape = SubResource( 1 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 hframes = 10
-frame = 1
+frame = 8
 _sections_unfolded = [ "Animation", "Transform", "Visibility" ]
 
 [node name="HealthBar" type="TextureProgress" parent="." index="2"]
@@ -161,5 +187,12 @@ playback_speed = 1.0
 anims/Attack = SubResource( 2 )
 anims/Walking = SubResource( 3 )
 blend_times = [  ]
+
+[node name="HurtBox" parent="." index="4" instance=ExtResource( 5 )]
+
+position = Vector2( 31.8874, 0.79055 )
+scale = Vector2( 0.785945, 1 )
+
+[connection signal="body_entered" from="HurtBox" to="." method="_on_HurtBox_body_entered"]
 
 

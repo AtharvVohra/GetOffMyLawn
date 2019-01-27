@@ -14,6 +14,7 @@ var health = maxHealth
 export var damage = 10
 var anim
 var animNew
+export var attacking = false
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -26,7 +27,12 @@ func _process(delta):
 	 
 	playerDistance = position.distance_to(playerPosition)
 	# if distance < 20, attack
-	if(playerDistance < 80):
+	if attacking:
+		$HurtBox/CollisionShape2D.disabled = false
+	else:
+		$HurtBox/CollisionShape2D.disabled = true
+		
+	if(playerDistance < 60):
 		attack()
 		anim = "Attack"
 	else:
@@ -42,6 +48,7 @@ func _process(delta):
 	
 		
 func attack():
+
 	pass#playerNode.takeDamage(damage)
 	# play the animation and sound effect stuff
 	
@@ -49,8 +56,16 @@ func move():
 	# get the direction, move and slide
 	velocity = (playerPosition - position).normalized() * MOVE_SPEED
     # rotation = velocity.angle()
-	if (playerPosition - position).length() > 80:
+	if (playerPosition - position).length() > 60:
     	move_and_slide(velocity)
+	if velocity.x > 0:
+		if $Sprite.flip_h == true:
+			$Sprite.flip_h = false
+			$HurtBox.position.x *= -1
+	elif velocity.x < 0:
+		if $Sprite.flip_h == false:
+			$Sprite.flip_h = true
+			$HurtBox.position.x *= -1
 		
 func take_damage(damage, damageType):
 	# if 3rd player hit, then down/stun, move back
@@ -68,4 +83,8 @@ func take_damage(damage, damageType):
 		
 	if health <= 0:
 		queue_free()
-		
+
+
+func _on_HurtBox_body_entered(body):
+	if body.is_in_group("Player"):
+		playerNode.take_damage(damage)
