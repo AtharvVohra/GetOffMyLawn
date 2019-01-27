@@ -1,15 +1,15 @@
 [gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/World.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/ConstructionWorker.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/EnemySpawner.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/LawnTileset.res" type="TileSet" id=5]
-[ext_resource path="res://Assets/City (Public Domain from OpenGameArt)/Foreground.png" type="Texture" id=6]
-[ext_resource path="res://Assets/City (Public Domain from OpenGameArt)/BG.png" type="Texture" id=7]
-[ext_resource path="res://Assets/City (Public Domain from OpenGameArt)/Background 1.png" type="Texture" id=8]
-[ext_resource path="res://Assets/City (Public Domain from OpenGameArt)/Middle.png" type="Texture" id=9]
-[ext_resource path="res://Assets/HouseForeground.png" type="Texture" id=10]
+[ext_resource path="res://Assets/HouseForeground.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/ConstructionWorker.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/EnemySpawner.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/LawnTileset.res" type="TileSet" id=6]
+[ext_resource path="res://Assets/City (Public Domain from OpenGameArt)/Foreground.png" type="Texture" id=7]
+[ext_resource path="res://Assets/City (Public Domain from OpenGameArt)/BG.png" type="Texture" id=8]
+[ext_resource path="res://Assets/City (Public Domain from OpenGameArt)/Background 1.png" type="Texture" id=9]
+[ext_resource path="res://Assets/City (Public Domain from OpenGameArt)/Middle.png" type="Texture" id=10]
 
 [sub_resource type="Animation" id=1]
 
@@ -113,13 +113,38 @@ tracks/1/keys = {
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Player" parent="." index="0" instance=ExtResource( 2 )]
+[node name="HouseForeground" type="Sprite" parent="." index="0"]
 
-position = Vector2( -396.361, 111.632 )
+editor/display_folded = true
+position = Vector2( -363.624, 137.129 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="HouseForeground" index="0"]
+
+position = Vector2( 22.5767, 11.8312 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HouseForeground/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -167.803, 97.288, 69.0385, -213.857, 71.0287, -121.641 )
+
+[node name="Player" parent="." index="1" instance=ExtResource( 3 )]
+
+position = Vector2( -274.291, 188.589 )
 NORMAL_SPEED = 250
 attackType = 1
 
-[node name="Camera2D" type="Camera2D" parent="." index="1"]
+[node name="Camera2D" type="Camera2D" parent="." index="2"]
 
 anchor_mode = 1
 rotating = false
@@ -144,22 +169,22 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
 
-[node name="ConstructionWorker" parent="." index="2" instance=ExtResource( 3 )]
+[node name="ConstructionWorker" parent="." index="3" instance=ExtResource( 4 )]
 
 position = Vector2( 349.286, 120.488 )
 
-[node name="EnemySpawner" parent="." index="3" instance=ExtResource( 4 )]
+[node name="EnemySpawner" parent="." index="4" instance=ExtResource( 5 )]
 
 position = Vector2( 468.007, 112.947 )
 scale = Vector2( 1, 4.88705 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="TileMap" type="TileMap" parent="." index="4"]
+[node name="TileMap" type="TileMap" parent="." index="5"]
 
 editor/display_folded = true
 z_index = -50
 mode = 0
-tile_set = ExtResource( 5 )
+tile_set = ExtResource( 6 )
 cell_size = Vector2( 32, 32 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -183,40 +208,40 @@ __meta__ = {
 [node name="Foreground" type="Sprite" parent="TileMap" index="0"]
 
 position = Vector2( -123.527, -133.571 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="BG" type="Sprite" parent="TileMap" index="1"]
 
 position = Vector2( -313.844, -182.03 )
 scale = Vector2( 1.64782, 1.72763 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 
 [node name="BG2" type="Sprite" parent="TileMap" index="2"]
 
 position = Vector2( 467.898, -182.149 )
 scale = Vector2( 1.64782, 1.72763 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 
 [node name="Background 1" type="Sprite" parent="TileMap" index="3"]
 
 position = Vector2( -74.8398, -133.571 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="BG3" type="Sprite" parent="TileMap" index="4"]
 
 position = Vector2( 74.1938, -181.537 )
 scale = Vector2( 1.64782, 1.72763 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 
 [node name="Middle" type="Sprite" parent="TileMap" index="5"]
 
 position = Vector2( -73.4488, -130.789 )
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 
-[node name="InvisibleWalls" type="TileMap" parent="." index="5"]
+[node name="InvisibleWalls" type="TileMap" parent="." index="6"]
 
 mode = 0
-tile_set = ExtResource( 5 )
+tile_set = ExtResource( 6 )
 cell_size = Vector2( 32, 32 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -237,7 +262,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Game Over" type="Label" parent="." index="6"]
+[node name="Game Over" type="Label" parent="." index="7"]
 
 modulate = Color( 0, 0, 0, 0 )
 anchor_left = 0.0
@@ -261,7 +286,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Visibility" ]
 
-[node name="Victory" type="Label" parent="." index="7"]
+[node name="Victory" type="Label" parent="." index="8"]
 
 modulate = Color( 0, 1, 0.15625, 0 )
 anchor_left = 0.0
@@ -285,7 +310,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "Visibility" ]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="9"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -297,7 +322,7 @@ playback_speed = 1.0
 "anims/Victory Sequence" = SubResource( 3 )
 blend_times = [  ]
 
-[node name="Panel" type="Panel" parent="." index="9"]
+[node name="Panel" type="Panel" parent="." index="10"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -315,40 +340,35 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Visibility" ]
 
-[node name="Background 1" type="Sprite" parent="." index="10"]
+[node name="Background 1" type="Sprite" parent="." index="11"]
 
 position = Vector2( 400.902, -132.18 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="Foreground3" type="Sprite" parent="Background 1" index="0"]
 
 position = Vector2( -1.39102, -2.78201 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="Background 1" type="Sprite" parent="Background 1" index="1"]
 
 position = Vector2( -278.211, -1.39105 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="Foreground" type="Sprite" parent="Background 1" index="2"]
 
 position = Vector2( -279.602, -2.7821 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="Background 2" type="Sprite" parent="Background 1" index="3"]
 
 position = Vector2( -715.003, 0 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="Foreground2" type="Sprite" parent="Background 1" index="4"]
 
 position = Vector2( -709.439, 0 )
-texture = ExtResource( 6 )
-
-[node name="HouseForeground" type="Sprite" parent="." index="11"]
-
-position = Vector2( -363.624, 137.129 )
-texture = ExtResource( 10 )
+texture = ExtResource( 7 )
 
 [node name="Foreground" type="Sprite" parent="." index="12"]
 
