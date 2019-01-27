@@ -23,9 +23,12 @@ var damage = [10, 20, 30]
 var attackCounter = 0
 var special = false
 
+var worldNode
+
 func _ready():
 	set_physics_process(true)
 	$CanvasLayer/Control.show()
+	worldNode = get_tree().root.get_node("World")
 
 func _physics_process(delta):
 	mousePos = get_global_mouse_position()
@@ -118,8 +121,12 @@ func take_damage(damage):
 	if health <= 0:
 		$CollisionShape2D.disabled = true
 		hide()
+		worldNode.get_node("AnimationPlayer").play("Game Over Sequence")
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if(anim_name != "walking"):
 		animNew = "idle"
+
+func gameOver():
+	get_tree().change_scene("res://Scenes/World.tscn")
