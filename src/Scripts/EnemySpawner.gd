@@ -24,9 +24,7 @@ func _process(delta):
 	x += 1
 	if x % 100 == 0 and wave < 5:
 		var enemyCount = len(get_tree().get_nodes_in_group("Enemy"))
-		print(enemyCount)
 		if enemyCount == 0:
-			
 			for i in range(waves[wave]):
 				spawn()
 			wave += 1
